@@ -1,0 +1,180 @@
+@import ../../bourbon/bourbon
+@import fonts
+@import libs
+@import vars
+@import settings
+
+.main-head
+  color: $white
+  position: relative
+  min-height: 80vh
+  background: $color url("../img/bg.jpg") no-repeat center top
+  background-size: cover
+  .top-line
+    padding: 20px 0
+    h3
+      margin-top: 0
+    .top-phone
+      text-align: right
+      p
+        line-height: 1
+        > a
+          margin-top: 0
+          font-family: "Exo2Bold", serif
+          font-size: 20px
+  .header-content
+    padding-top: 5%
+    h1
+      margin-bottom: 30px
+    ul
+      list-style-type: none
+      text-align: left
+      padding: 0
+      li
+        display: block
+        font-family: "OpenSansSemiBold", sans-serif
+        line-height: 1.7
+        .fa
+          font-size: 20px
+          width: 20px
+          margin-right: 7px
+.s-about
+  &-item
+    img
+      width: 150px
+      margin-bottom: 20px
+    p
+      font-size: em(18px)
+
+.s-features
+  text-align: center
+  h2
+    color: $white
+  p
+    color: $white
+    font-size: em(18px)
+    line-height: 1.7
+    > a
+      display: block
+      font-family: "OpenSansBold", sans-serif
+      &:hover
+        color: rgba($white, .8)
+  .img-svg
+    width: 130px
+    height: auto
+    margin-bottom: 20px
+    +mt(.5s)
+    path
+      fill: $white
+  .button
+    margin-top: 10px
+
+.s-feat-item
+  position: relative
+  &:hover
+    .img-svg
+      path
+        fill: lighten($accent, 10%)
+      transform: scale(1.15)
+  &::after
+    position: absolute
+    content: '\f0a9'
+    top: 20%
+    right: -10%
+    color: $white
+    font-size: 30px
+  &:last-child
+    &::after
+      content: ''
+
+
+.s-works
+  h3
+    margin-top: 50px
+    margin-bottom: 25px
+  .col-sm-3
+    padding: 0 5px
+  .works-item
+    margin-bottom: 10px
+  h4
+    margin-top: 30px
+
+.s-contacts
+  background-color: lighten($color, 20%)
+  color: $white
+  padding-top: 60px
+
+.form
+  display: block
+  padding: 20px 30px
+  border: 1px solid rgba($white, 20%)
+  border-radius: 8px
+  margin-bottom: 50px
+  &-head
+    h3
+      margin: 5px 0 15px
+    p
+      margin-bottom: 25px
+  label
+    display: block
+    span
+      display: block
+      color: rgba($white, .8)
+      margin-bottom: 5px
+    input, textarea
+      display: block
+      width: 100%
+      outline: none
+      background-color: transparent
+      color: $white
+      border: 1px solid rgba($white, 20%)
+      border-radius: 5px
+      margin-bottom: 20px
+      padding: 10px 16px
+  .button
+    margin-top: 20px
+
+.form.top-form
+  border: 1px solid rgba($accent, 20%)
+  input, textarea
+    background-color: rgba($white, .5)
+    border: 1px solid $accent
+
+.contacts-text
+  h3
+    margin: 20px 0 20px
+    text-transform: none
+  p
+    font-size: em(15px)
+    margin-bottom: 15px
+  .fa
+    margin-right: 5px
+    width: 15px
+    font-size: 20px
+  a
+    text-decoration: none
+    .img-svg
+      margin-top: 20px
+      margin-right: 20px
+    &:hover, &:focus
+      color: rgba($white, .7) !important
+      .img-svg
+        path
+          fill: $accent !important
+  .contacts-logo
+    a
+      &:hover
+        img
+          transform: scale(1.1)
+      img
+        width: 250px
+        +mt(.25s)
+
+.form.form-callback
+  background-color: rgba($white, .1)
+  h4
+    margin-bottom: 30px
+  input
+    margin-bottom: 30px
+  .button
+    margin-top: 10px
