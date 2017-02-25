@@ -38,6 +38,8 @@
           font-size: 20px
           width: 20px
           margin-right: 7px
+    .button
+      margin-top: 30px
 .s-about
   &-item
     img
@@ -92,22 +94,120 @@
   h3
     margin-top: 50px
     margin-bottom: 25px
-  .col-sm-3
-    padding: 0 5px
-  .works-item
-    margin-bottom: 10px
+  .portfolio
+    .col-lg-3
+      padding: 7px 7px
+    &-item
+      position: relative
+      display: block
+      overflow: hidden
+      img
+        +mt(.5s)
+        width: 300px
+        height: 200px
+        object-fit: contain
+        display: inline-block
+      &:hover
+        .portfolio-item-cont
+          opacity: 1
+          transform: scale(.95)
+        img
+          transform: scale(1.1)
+      &-cont
+        position: absolute
+        color: $white
+        padding-top: 20%
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: rgba($blue, .85)
+        text-align: center
+        opacity: 0
+        +mt(.5s)
+        transform: scale(1.1)
+        .fa
+          color: rgba($white, .6)
+          font-size: 24px
+  .text-center
+    h4
+      margin-top: 50px
+      a
+        color: $blue
+
+.portfolio-popup
+  position: relative
+  background-color: #fff
+  display: block
+  max-width: 1000px
+  margin: 3% auto
+  text-align: center
+  padding-top: 15px
+  +mt(.25s)
+  .row, .col-sm-12
+    display: block
   h4
-    margin-top: 30px
+    line-height: em(21px)
+    margin: 10px auto 30px
+    width: 70%
+  &-text
+    display: block
+    width: 90%
+    margin: 10px auto 40px
+  .td
+    vertical-align: top
+    padding: 0
+    color: #666
+    &.wsnw
+      color: $accent
+    .fa
+      font-size: 22px
+      margin-right: 3px
+
+.s-testimonials
+  .carousel-testimonials
+    padding: 0 80px
+    position: relative
+    .carousel-testimonial
+      +mt(.5s)
+      img
+        width: 100px
+        display: inline-block
+        border-radius: 50%
+        margin-bottom: 15px
+      p
+        opacity: .9
+        font-family: "OpenSansLight", sans-serif
+        font-style: italic
+    .owl-nav
+      position: absolute
+      width: 100%
+      top: em(50px)
+      > div
+        position: absolute
+        font-size: 34px
+        line-height: 38px
+        color: #9c9c9c
+        @include mt(.25s)
+        &:hover
+          color: $white
+        &.owl-prev
+          left: -25px
+        &.owl-next
+          right: 25px
+  .video-testimonial
+    .fa
+      font-size: 80px
+      color: rgba($white, .9)
 
 .s-contacts
-  background-color: lighten($color, 20%)
-  color: $white
   padding-top: 60px
+  color: $color
 
 .form
   display: block
   padding: 20px 30px
-  border: 1px solid rgba($white, 20%)
+  border: 1px solid rgba($color, .6)
   border-radius: 8px
   margin-bottom: 50px
   &-head
@@ -119,15 +219,15 @@
     display: block
     span
       display: block
-      color: rgba($white, .8)
+      color: rgba($color, .8)
       margin-bottom: 5px
     input, textarea
       display: block
       width: 100%
       outline: none
       background-color: transparent
-      color: $white
-      border: 1px solid rgba($white, 20%)
+      color: $color
+      border: 1px solid rgba($color, .6)
       border-radius: 5px
       margin-bottom: 20px
       padding: 10px 16px
@@ -167,7 +267,7 @@
         img
           transform: scale(1.1)
       img
-        width: 250px
+        width: 300px
         +mt(.25s)
 
 .form.form-callback

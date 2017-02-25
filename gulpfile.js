@@ -23,6 +23,7 @@ gulp.task('scripts', function () {
 		'app/libs/jquery-migrate/jquery-migrate.min.js',
         'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
         'app/libs/wow/dist/wow.min.js',
+        'app/libs/owl.carousel/dist/owl.carousel.min.js',
         'app/libs/parallax.js/parallax.js',
         'app/libs/equalheights/equalheights.js',
         'app/js/common.js' // Всегда в конце

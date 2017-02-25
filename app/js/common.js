@@ -7,19 +7,17 @@ $(function() {
     $(".item-text").equalHeights();
 
 	//Magnific Popup
-    $('.popup-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        tLoading: 'Загрузка изображения #%curr%...',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-        },
-        image: {
-            tError: '<a href="%url%">Изображение #%curr%</a> не может быть загружено.'
-        }
+    var portfolioItem = $('.portfolio-item');
+    portfolioItem.each(function (e) {
+        var th = $(this);
+        th.attr('href', '#portfolio-img-' + e)
+            .find('.portfolio-popup')
+            .attr('id', 'portfolio-img-' + e);
+    });
+    portfolioItem.magnificPopup({
+        mainClass: 'my-mfp-zoom-in',
+        removalDelay: 300,
+        type: 'inline'
     });
 
     var callBack = $('a[href="#callback"]');
@@ -33,6 +31,39 @@ $(function() {
         var dataText = $(this).data('text');
         $('.form-callback h4').text(dataText);
         $('.form-callback [name=admin-data]').val(dataForm);
+    });
+    $('.popup-youtube').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
+
+    //Owl Carousel
+    var owlTes = $('.carousel-testimonials');
+    owlTes.owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        margin: 10,
+        nav: true,
+        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+        responsive: {
+            0: {
+                items: 1
+            }
+        }
+    });
+    owlTes.on('mousewheel', '.owl-stage', function (e) {
+        if (e.deltaY > 0) {
+            owlTes.trigger('prev.owl');
+        } else {
+            owlTes.trigger('next.owl');
+        }
+        e.preventDefault();
     });
 	
 	    //E-mail Ajax Send
