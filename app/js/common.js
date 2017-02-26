@@ -6,6 +6,14 @@ $(function() {
     //EqualHeight
     $(".item-text").equalHeights();
 
+    $(".js-button").on("click", function (e) {
+        e.preventDefault();
+        var catOffset = $("#catalog").offset().top;
+        $("html, body").animate({
+            scrollTop: catOffset
+        }, 700)
+    });
+
 	//Magnific Popup
     var portfolioItem = $('.portfolio-item');
     portfolioItem.each(function (e) {
@@ -65,25 +73,6 @@ $(function() {
         }
         e.preventDefault();
     });
-	
-	    //E-mail Ajax Send
-    $('form').submit(function () { //Change
-        var th = $(this);
-        $.ajax({
-            type: 'POST',
-            url: 'mail.php', //Change
-            data: th.serialize()
-        }).done(function () {
-            $('.form-callback .success').addClass('active');
-            setTimeout(function () {
-                // Done Functions
-                $('.form-callback .success').removeClass('active');
-                th.trigger('reset');
-                $.magnificPopup.close();
-            }, 2000);
-        });
-        return false;
-    });
 
 		//Replace all SVG images with inline SVG
     $('img.img-svg').each(function () {
@@ -112,5 +101,25 @@ $(function() {
             $img.replaceWith($svg);
         }, 'xml');
     });
-	
+
+    //E-mail Ajax Send
+    $('form').submit(function () { //Change
+        var th = $(this);
+        $.ajax({
+            type: 'POST',
+            url: 'mail.php', //Change
+            data: th.serialize()
+        }).done(function () {
+            $('.success').addClass('active');
+            $('.form-head').addClass('active');
+            setTimeout(function () {
+                // Done Functions
+                $('.success').removeClass('active');
+                $('.form-head').removeClass('active');
+                th.trigger('reset');
+                $.magnificPopup.close();
+            }, 2000);
+        });
+        return false;
+    });
 });
