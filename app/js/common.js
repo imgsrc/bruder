@@ -8,9 +8,8 @@ $(function() {
 
     $(".js-button").on("click", function (e) {
         e.preventDefault();
-        var catOffset = $("#catalog").offset().top;
         $("html, body").animate({
-            scrollTop: catOffset
+            scrollTop: $("#catalog").offset().top
         }, 700)
     });
 
@@ -110,14 +109,16 @@ $(function() {
             url: 'mail.php', //Change
             data: th.serialize()
         }).done(function () {
-            $('.success').addClass('active');
-            $('.form-head').addClass('active');
+            $.magnificPopup.close();
             setTimeout(function () {
                 // Done Functions
-                $('.success').removeClass('active');
-                $('.form-head').removeClass('active');
+                $('.success, #js-overlay').fadeIn(500);
                 th.trigger('reset');
-                $.magnificPopup.close();
+            }, 1000);
+            setTimeout(function () {
+                // Done Functions
+                $('.success, #js-overlay').fadeOut(500);
+                th.trigger('reset');
             }, 2000);
         });
         return false;
